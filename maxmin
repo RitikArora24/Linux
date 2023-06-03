@@ -1,0 +1,24 @@
+
+
+#!/bin/bash
+
+max=0
+min=1000000
+
+for ((i=1; i<=5; i++))
+do
+    read -p "Enter number $i: " n
+
+    if [ $n -gt $max ]
+    then
+        max=$n
+    fi
+
+    if [ $n -lt $min ]
+    then
+        min=$n
+    fi
+done
+
+echo "The maximum number is: $max"
+echo "The minimum number is: $min"
