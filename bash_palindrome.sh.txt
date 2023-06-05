@@ -1,0 +1,7 @@
+#!/bin/bash
+string = read -p "Enter a string: "
+if [[ $string|rev == $string ]];
+then
+    echo "Palindrome"
+fi;
+echo "not a Plindrome"
