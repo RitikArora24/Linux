@@ -1,0 +1,38 @@
+#!/bin/bash
+
+read -p "Enter the appropriate option:
+1. Create user (cu)
+2. Delete user (du)
+3. Create group (cg)
+4. Delete group (dg)
+Your choice: " com
+
+case $com in
+  "cu")
+    read -p "Enter the username: " username
+    sudo useradd $username
+    echo "User $username created."
+    ;;
+  
+  "du")
+    read -p "Enter the username to delete: " username
+    sudo userdel $username
+    echo "User $username deleted."
+    ;;
+
+  "cg")
+    read -p "Enter the group name: " groupname
+    sudo addgroup $groupname
+    echo "Group $groupname created."
+    ;;
+
+  "dg")
+    read -p "Enter the group name to delete: " groupname
+    sudo delgroup $groupname
+    echo "Group $groupname deleted."
+    ;;
+  
+  *)
+    echo "Invalid option."
+    ;;
+esac
