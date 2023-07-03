@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "Enter the absolute path of the current directory where zero size files will be searched and deleted: "
+read -r abs_path
+echo "$abs_path"
+
+zero_size=$(find "$abs_path" -type f -size 0)
+echo "$zero_size"
+
+if [ -z "$zero_size" ]; then
+    echo "No zero-sized files found."
+else
+    for file in $zero_size; do
+        rm "$file"
+    done
+    echo "Zero-sized files have been successfully deleted."
+fi
